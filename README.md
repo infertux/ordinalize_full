@@ -1,29 +1,42 @@
-# OrdinalizeFull
+# OrdinalizeFull [![Build Status](https://travis-ci.org/infertux/ordinalize_full.svg?branch=master)](https://travis-ci.org/infertux/ordinalize_full) [![Dependency Status](https://gemnasium.com/infertux/ordinalize_full.svg)](https://gemnasium.com/infertux/ordinalize_full) [![Code Climate](https://codeclimate.com/github/infertux/ordinalize_full.png)](https://codeclimate.com/github/infertux/ordinalize_full)
 
-TODO: Write a gem description
+Like Rails' [ordinalize](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-ordinalize) method but with the ability to return the ordinal string spelled out in full words such as _"first"_, _"second"_, _"third"_.
 
-## Installation
+Features:
 
-Add this line to your application's Gemfile:
-
-    gem 'ordinalize_full'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ordinalize_full
+- i18n support
+- doesn't monkey-patch
+- easy to integrate with Rails but doesn't require Rails
+- less than 25 lines of code
 
 ## Usage
 
-TODO: Write usage instructions here
+### Monkey-patching `Integer` (like Rails does)
 
-## Contributing
+```ruby
+require "ordinalize_full/integer"
 
-1. Fork it ( http://github.com/<my-github-username>/ordinalize_full/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+42.ordinalize_in_full #=> "forty second"
+42.ordinalize_full #=> "forty second"
+42.ordinalize(in_full: true) #=> "forty second"
+
+I18n.locale = :fr
+42.ordinalize_in_full #=> "quarante-deuxième"
+```
+
+### Without monkey-patching
+
+```ruby
+require "ordinalize_full"
+
+42.ordinalize_in_full #=> NoMethodError: undefined method `ordinalize_in_full' for 42:Fixnum
+
+class MyIntegerLikeClass; include OrdinalizeFull; def to_s; "42"; end; end #=> :to_s
+MyIntegerLikeClass.new.ordinalize_in_full #=> "forty second"
+```
+
+## Limitations
+
+- only works up to 100 (for now)
+- locales only available in English and French (pull requests welcome!)
+

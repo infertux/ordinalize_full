@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.0.0
+  - 2.1
+notifications:
+  email:
+    on_success: always
+    on_failure: always

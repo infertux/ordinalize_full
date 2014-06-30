@@ -1,0 +1,102 @@
+en:
+  ordinalize_full:
+    n_1: first
+    n_2: second
+    n_3: third
+    n_4: fourth
+    n_5: fifth
+    n_6: sixth
+    n_7: seventh
+    n_8: eighth
+    n_9: ninth
+    n_10: tenth
+    n_11: eleventh
+    n_12: twelfth
+    n_13: thirteenth
+    n_14: fourteenth
+    n_15: fifteenth
+    n_16: sixteenth
+    n_17: seventeenth
+    n_18: eighteenth
+    n_19: nineteenth
+    n_20: twentieth
+    n_21: twenty first
+    n_22: twenty second
+    n_23: twenty third
+    n_24: twenty fourth
+    n_25: twenty fifth
+    n_26: twenty sixth
+    n_27: twenty seventh
+    n_28: twenty eighth
+    n_29: twenty ninth
+    n_30: thirtieth
+    n_31: thirty first
+    n_32: thirty second
+    n_33: thirty third
+    n_34: thirty fourth
+    n_35: thirty fifth
+    n_36: thirty sixth
+    n_37: thirty seventh
+    n_38: thirty eighth
+    n_39: thirty ninth
+    n_40: fortieth
+    n_41: forty first
+    n_42: forty second
+    n_43: forty third
+    n_44: forty fourth
+    n_45: forty fifth
+    n_46: forty sixth
+    n_47: forty seventh
+    n_48: forty eighth
+    n_49: forty ninth
+    n_50: fiftieth
+    n_51: fifty first
+    n_52: fifty second
+    n_53: fifty third
+    n_54: fifty fourth
+    n_55: fifty fifth
+    n_56: fifty sixth
+    n_57: fifty seventh
+    n_58: fifty eighth
+    n_59: fifty ninth
+    n_60: sixtieth
+    n_61: sixty first
+    n_62: sixty second
+    n_63: sixty third
+    n_64: sixty fourth
+    n_65: sixty fifth
+    n_66: sixty sixth
+    n_67: sixty seventh
+    n_68: sixty eighth
+    n_69: sixty ninth
+    n_70: seventieth
+    n_71: seventy first
+    n_72: seventy second
+    n_73: seventy third
+    n_74: seventy fourth
+    n_75: seventy fifth
+    n_76: seventy sixth
+    n_77: seventy seventh
+    n_78: seventy eighth
+    n_79: seventy ninth
+    n_80: eightieth
+    n_81: eighty first
+    n_82: eighty second
+    n_83: eighty third
+    n_84: eighty fourth
+    n_85: eighty fifth
+    n_86: eighty sixth
+    n_87: eighty seventh
+    n_88: eighty eighth
+    n_89: eighty ninth
+    n_90: ninetieth
+    n_91: ninety first
+    n_92: ninety second
+    n_93: ninety third
+    n_94: ninety fourth
+    n_95: ninety fifth
+    n_96: ninety sixth
+    n_97: ninety seventh
+    n_98: ninety eighth
+    n_99: ninety ninth
+    n_100: one hundredth
