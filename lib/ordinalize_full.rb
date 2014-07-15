@@ -7,8 +7,13 @@ module OrdinalizeFull
     in_full ? ordinalize_in_full : ordinalize_in_short
   end
 
+  alias_method :ordinalize_full, \
   def ordinalize_in_full
-    I18n.t("ordinalize_full.n_#{self}")
+    begin
+      I18n.t("ordinalize_full.n_#{self}", throw: true)
+    rescue ArgumentError
+      raise NotImplementedError, "Unknown locale #{I18n.locale}"
+    end
   end
 
 private
