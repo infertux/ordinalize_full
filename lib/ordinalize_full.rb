@@ -4,18 +4,37 @@ module OrdinalizeFull
   I18n.load_path << Dir[File.join(__dir__, "ordinalize_full/locales/*.yml")]
 
   def ordinalize(in_full: false)
-    if in_full
-      self.ordinalize_in_full
-    else
-      require "active_support/inflector"
-      ActiveSupport::Inflector.ordinalize(self)
-    end
+    in_full ? ordinalize_in_full : ordinalize_in_short
   end
 
   def ordinalize_in_full
     I18n.t("ordinalize_full.n_#{self}")
   end
 
-  alias_method :ordinalize_full, :ordinalize_in_full
+private
+
+  def ordinalize_in_short
+    abs_number = self.to_i.abs
+
+    suffix = case I18n.locale
+    when :en
+      if (11..13).include?(abs_number % 100)
+        "th"
+      else
+        case abs_number % 10
+          when 1; "st"
+          when 2; "nd"
+          when 3; "rd"
+          else    "th"
+        end
+      end
+    when :fr
+      self == 1 ? "er" : "ème"
+    else
+      raise NotImplementedError, "Unknown locale #{I18n.locale}"
+    end
+
+    [self, suffix].join
+  end
 end
 
