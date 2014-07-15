@@ -1,6 +1,6 @@
 require "ordinalize_full"
 
 class Integer
-  include OrdinalizeFull
+  prepend OrdinalizeFull
 end
 
