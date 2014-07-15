@@ -7,7 +7,7 @@ Features:
 - i18n support
 - doesn't monkey-patch
 - easy to integrate with Rails but doesn't require Rails
-- less than 25 lines of code
+- less than 50 lines of code
 
 ## Usage
 
@@ -19,9 +19,11 @@ require "ordinalize_full/integer"
 42.ordinalize_in_full #=> "forty second"
 42.ordinalize_full #=> "forty second"
 42.ordinalize(in_full: true) #=> "forty second"
+42.ordinalize #=> "42nd"
 
 I18n.locale = :fr
 42.ordinalize_in_full #=> "quarante-deuxième"
+42.ordinalize #=> "42ème"
 ```
 
 ### Without monkey-patching
