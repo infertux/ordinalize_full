@@ -1,7 +1,7 @@
 require "i18n"
 
 module OrdinalizeFull
-  I18n.load_path << Dir[File.join(__dir__, "ordinalize_full/locales/*.yml")]
+  I18n.load_path += Dir[File.join(__dir__, "ordinalize_full/locales/*.yml")]
 
   def ordinalize(in_full: false)
     in_full ? ordinalize_in_full : ordinalize_in_short
