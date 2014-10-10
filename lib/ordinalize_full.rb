@@ -35,6 +35,8 @@ private
       end
     when :fr
       self == 1 ? "er" : "ème"
+    when :it
+      "°"
     else
       raise NotImplementedError, "Unknown locale #{I18n.locale}"
     end

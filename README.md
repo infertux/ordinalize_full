@@ -40,5 +40,5 @@ MyIntegerLikeClass.new.ordinalize_in_full #=> "forty second"
 ## Limitations
 
 - only works up to 100 (for now)
-- locales only available in English and French (pull requests welcome!)
+- locales only available in English, French and Italian (pull requests welcome!)
 

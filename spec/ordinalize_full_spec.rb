@@ -41,6 +41,13 @@ describe OrdinalizeFull do
       specify { expect(1.ordinalize(in_full: false)).to eq("1er") }
     end
 
+    context "with locale = :it" do
+      before { I18n.locale = :it }
+
+      specify { expect(1.ordinalize(in_full: true)).to eq("primo") }
+      specify { expect(1.ordinalize(in_full: false)).to eq("1°") }
+    end
+
     it "raises for unknown locales" do
       I18n.locale = :zz
       expect { 1.ordinalize(in_full: false) }.to raise_error(NotImplementedError)
