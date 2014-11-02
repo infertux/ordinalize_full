@@ -1,0 +1,34 @@
+nl:
+  ordinalize_full:
+    n_1: eerste
+    n_2: tweede
+    n_3: derde
+    n_4: vierde
+    n_5: vijfde
+    n_6: zesde
+    n_7: zevende
+    n_8: achtste
+    n_9: negende
+    n_10: tiende
+    n_11: elfde
+    n_12: twaalfde
+    n_13: dertiende
+    n_14: veertiende
+    n_15: vijftiende
+    n_16: zestiende
+    n_17: zeventiende
+    n_18: achttiende
+    n_19: negentiende
+    n_20: twintigste
+    n_21: eenentwintigste
+    n_22: tweeëntwintigste
+    n_30: dertigste
+    n_40: veertigste
+    n_50: vijftigste
+    n_60: zestigste
+    n_70: zeventigste
+    n_80: tachtigste
+    n_90: negentigste
+    n_100: honderdste
+    n_1000: duizendste
+    n_1000000: miljoenste
