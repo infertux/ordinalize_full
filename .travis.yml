@@ -1,6 +1,13 @@
 language: ruby
 rvm:
   - 2.1
+  - 2.2
+  - ruby-head
+  - rbx
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: rbx
 notifications:
   email:
     on_success: always
