@@ -39,8 +39,6 @@ private
       "°"
     when :nl
       self % 100 == 8 || self % 100 == 1 || self % 100 > 19 || self % 100 == 0 ? "ste" : "de"
-    else
-      raise NotImplementedError, "Unknown locale #{I18n.locale}"
     end
 
     [self, suffix].join
