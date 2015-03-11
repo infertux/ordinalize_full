@@ -38,7 +38,7 @@ private
     when :it
       "°"
     when :nl
-      self % 100 == 8 || self % 100 == 1 || self % 100 > 19 || self % 100 == 0 ? "ste" : "de"
+      [8, 1, 0].include?(self % 100) || self % 100 > 19 ? "ste" : "de"
     end
 
     [self, suffix].join

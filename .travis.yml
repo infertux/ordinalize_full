@@ -1,4 +1,6 @@
 language: ruby
+after_script:
+  - cane --no-doc
 rvm:
   - 2.1
   - 2.2

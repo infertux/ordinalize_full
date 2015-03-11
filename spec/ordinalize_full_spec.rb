@@ -7,7 +7,10 @@ describe OrdinalizeFull do
 
       specify { expect(1.ordinalize_in_full).to eq("first") }
       specify { expect(42.ordinalize_in_full).to eq("forty second") }
-      specify { expect { 101.ordinalize_in_full }.to raise_error(NotImplementedError) }
+
+      it "raises with unknown numbers" do
+        expect { 101.ordinalize_in_full }.to raise_error(NotImplementedError)
+      end
     end
 
     context "with locale = :fr" do
