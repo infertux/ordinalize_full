@@ -1,0 +1,23 @@
+Metrics:
+  Enabled: false
+
+Lint/EndAlignment:
+  Enabled: false
+
+Style/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/CaseIndentation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

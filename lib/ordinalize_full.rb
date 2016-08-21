@@ -9,28 +9,26 @@ module OrdinalizeFull
 
   alias_method :ordinalize_full, \
   def ordinalize_in_full
-    begin
-      I18n.t("ordinalize_full.n_#{self}", throw: true)
-    rescue ArgumentError
-      raise NotImplementedError, "Unknown locale #{I18n.locale}"
-    end
+    I18n.t("ordinalize_full.n_#{self}", throw: true)
+  rescue ArgumentError
+    raise NotImplementedError, "Unknown locale #{I18n.locale}"
   end
 
 private
 
   def ordinalize_in_short
-    abs_number = self.to_i.abs
+    abs_number = to_i.abs
 
     suffix = case I18n.locale
     when :en
-      if (11..13).include?(abs_number % 100)
+      if (11..13).cover?(abs_number % 100)
         "th"
       else
         case abs_number % 10
-          when 1; "st"
-          when 2; "nd"
-          when 3; "rd"
-          else    "th"
+        when 1 then "st"
+        when 2 then "nd"
+        when 3 then "rd"
+        else "th"
         end
       end
     when :fr
@@ -44,4 +42,3 @@ private
     [self, suffix].join
   end
 end
-

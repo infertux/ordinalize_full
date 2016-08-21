@@ -62,4 +62,3 @@ describe OrdinalizeFull do
     end
   end
 end
-
