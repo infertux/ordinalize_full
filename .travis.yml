@@ -4,13 +4,10 @@ after_script:
 rvm:
   - 2.1
   - 2.2
+  - 2.3.1
   - ruby-head
   - rbx
 matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: rbx
-notifications:
-  email:
-    on_success: always
-    on_failure: always
