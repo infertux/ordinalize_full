@@ -7,7 +7,7 @@ module OrdinalizeFull
     in_full ? ordinalize_in_full : ordinalize_in_short
   end
 
-  alias_method :ordinalize_full, \
+  alias_method :ordinalize_full, :ordinalize
   def ordinalize_in_full
     I18n.t("ordinalize_full.n_#{self}", throw: true)
   rescue ArgumentError
