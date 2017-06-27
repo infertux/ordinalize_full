@@ -1,0 +1,30 @@
+es:
+  ordinalize_full:
+    n_1: primero
+    n_2: segundo
+    n_3: tercero
+    n_4: cuarto
+    n_5: quinto
+    n_6: sexto  
+    n_7: séptimo
+    n_8: octavo
+    n_9: noveno
+    n_10: décimo 
+    n_11: undécimo
+    n_12: duodécimo
+    n_13: decimotercero
+    n_14: decimocuarto
+    n_15: decimoquinto
+    n_16: decimosexto
+    n_17: decimoséptimo
+    n_18: decimoctavo
+    n_19: decimonoveno
+    n_20: vigésimo
+    n_30: trigésimo
+    n_40: cuadragésimo
+    n_50: quincuagésimo
+    n_60: sexagésimo
+    n_70: septuagésimo
+    n_80: octogésimo
+    n_90: nonagésimo
+    n_100: centésimo
