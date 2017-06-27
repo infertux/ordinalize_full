@@ -3,42 +3,45 @@ require "i18n"
 module OrdinalizeFull
   I18n.load_path += Dir[File.join(__dir__, "ordinalize_full/locales/*.yml")]
 
-  def ordinalize(in_full: false, noun_gender: :masculine  , noun_plurality: :singular)
-    in_full ? ordinalize_in_full(noun_gender: noun_gender  , noun_plurality: noun_plurality) : ordinalize_in_short(noun_gender: noun_gender  , noun_plurality: noun_plurality)
+  def ordinalize(in_full: false, gender: :masculine, plurality: :singular)
+    if in_full
+      ordinalize_in_full(gender: gender, plurality: plurality)
+    else
+      ordinalize_in_short(gender: gender, plurality: plurality)
+    end
   end
 
   alias_method :ordinalize_full, \
-  def ordinalize_in_full(noun_gender: :masculine  , noun_plurality: :singular)
+  def ordinalize_in_full(gender: :masculine, plurality: :singular)
     case I18n.locale
     when :es
       value = I18n.t("ordinalize_full.n_#{self}", throw: false, default: "")
-      if(value == "")
-        value = [I18n.t("ordinalize_full.n_#{(self/10)*10}", throw: true),I18n.t("ordinalize_full.n_#{self%10}", throw: true)].join(" ")
-      end
-      
-      if noun_gender == :feminine
-        value = value.split.map{|value| value.chop << "a"}.join(" ")
-      end
-      if noun_plurality == :plural
-        value << "s"
+
+      if value.empty?
+        value = [
+          I18n.t("ordinalize_full.n_#{(self / 10) * 10}", throw: true),
+          I18n.t("ordinalize_full.n_#{self % 10}", throw: true)
+        ].join(" ")
       end
 
-      # if value ends in 1 or 3 shorten it , if it is masculine singular
-      if value.end_with?("ero")
-        value = value.chop
+      if gender == :feminine
+        value = value.split.map { |part| part.chop << "a" }.join(" ")
       end
+
+      value << "s" if plurality == :plural
+      value = value.chop if value.end_with?("ero")
+
       value
     else
       I18n.t("ordinalize_full.n_#{self}", throw: true)
     end
-
   rescue ArgumentError
     raise NotImplementedError, "Unknown locale #{I18n.locale}"
   end
 
 private
 
-  def ordinalize_in_short(noun_gender: :masculine  , noun_plurality: :singular)
+  def ordinalize_in_short(gender: :masculine, plurality: :singular)
     abs_number = to_i.abs
     suffix = case I18n.locale
     when :en
@@ -59,16 +62,17 @@ private
     when :nl
       [8, 1, 0].include?(self % 100) || self % 100 > 19 ? "ste" : "de"
     when :es
-      full_ordinalized_val = ordinalize_in_full(noun_gender: noun_gender ,noun_plurality: noun_plurality)
-      if full_ordinalized_val.end_with?("er")
+      value = ordinalize_in_full(gender: gender, plurality: plurality)
+
+      if value.end_with?("er")
         ".ᵉʳ"
-      elsif full_ordinalized_val.end_with?("a")
-        ".ᵃ" 
-      elsif full_ordinalized_val.end_with?("o")
+      elsif value.end_with?("a")
+        ".ᵃ"
+      elsif value.end_with?("o")
         ".ᵒ"
-      elsif full_ordinalized_val.end_with?("os")
+      elsif value.end_with?("os")
         ".ᵒˢ"
-      elsif full_ordinalized_val.end_with?("as")
+      elsif value.end_with?("as")
         ".ᵃˢ"
       end
     end

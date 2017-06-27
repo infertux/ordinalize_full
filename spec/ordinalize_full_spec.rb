@@ -30,17 +30,16 @@ describe OrdinalizeFull do
     context "with locale = :es" do
       before { I18n.locale = :es }
 
-      specify { expect(1.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :plural)).to eq("primeras") }
+      specify { expect(1.ordinalize_in_full(gender: :feminine, plurality: :plural)).to eq("primeras") }
       specify { expect(1.ordinalize_in_full).to eq("primer") }
-      specify { expect(13.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :plural)).to eq("decimoterceras") }
+      specify { expect(13.ordinalize_in_full(gender: :feminine, plurality: :plural)).to eq("decimoterceras") }
       specify { expect(13.ordinalize_in_full).to eq("decimotercer") }
-      specify { expect(14.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :plural)).to eq("decimocuartas") }
+      specify { expect(14.ordinalize_in_full(gender: :feminine, plurality: :plural)).to eq("decimocuartas") }
       specify { expect(55.ordinalize_in_full).to eq("quincuagésimo quinto") }
-      specify { expect(22.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :plural)).to eq("vigésima segundas") }
-      specify { expect(22.ordinalize_in_full(noun_gender: :feminine)).to eq("vigésima segunda") }
-      specify { expect(22.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :singular)).to eq("vigésima segunda") }
+      specify { expect(22.ordinalize_in_full(gender: :feminine, plurality: :plural)).to eq("vigésima segundas") }
+      specify { expect(22.ordinalize_in_full(gender: :feminine)).to eq("vigésima segunda") }
+      specify { expect(22.ordinalize_in_full(gender: :feminine, plurality: :singular)).to eq("vigésima segunda") }
     end
-
   end
 
   describe "#ordinalize_full" do
@@ -79,14 +78,13 @@ describe OrdinalizeFull do
     context "with locale = :es" do
       before { I18n.locale = :es }
 
-      specify { expect(1.ordinalize(noun_gender: :feminine , noun_plurality: :plural)).to eq("1.ᵃˢ") }
+      specify { expect(1.ordinalize(gender: :feminine, plurality: :plural)).to eq("1.ᵃˢ") }
       specify { expect(1.ordinalize).to eq("1.ᵉʳ") }
-      specify { expect(13.ordinalize(noun_gender: :feminine,noun_plurality: :plural)).to eq("13.ᵃˢ") }
+      specify { expect(13.ordinalize(gender: :feminine, plurality: :plural)).to eq("13.ᵃˢ") }
       specify { expect(13.ordinalize).to eq("13.ᵉʳ") }
-      specify { expect(14.ordinalize(noun_gender: :feminine,noun_plurality: :plural)).to eq("14.ᵃˢ") }
+      specify { expect(14.ordinalize(gender: :feminine, plurality: :plural)).to eq("14.ᵃˢ") }
       specify { expect(55.ordinalize).to eq("55.ᵒ") }
-      specify { expect(22.ordinalize(noun_gender: :feminine,noun_plurality: :plural)).to eq("22.ᵃˢ") }
+      specify { expect(22.ordinalize(gender: :feminine, plurality: :plural)).to eq("22.ᵃˢ") }
     end
-
   end
 end

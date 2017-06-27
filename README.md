@@ -26,9 +26,9 @@ I18n.locale = :fr
 42.ordinalize #=> "42ème"
 
 I18n.locale = :es
-14.ordinalize_in_full(noun_gender: :feminine,noun_plurality: :plural) #=> decimocuartas
+14.ordinalize_in_full(gender: :feminine, plurality: :plural) #=> decimocuartas
 1.ordinalize_in_full #=> primer // default masculine, singular
-22.ordinalize_in_full(noun_gender: :feminine) #=> vigésima segunda // default singular
+22.ordinalize_in_full(gender: :feminine) #=> vigésima segunda // default singular
 1.ordinalize #=> 1.ᵉʳ
 55.ordinalize #=> 55.ᵒ
 ```
@@ -47,5 +47,5 @@ MyIntegerLikeClass.new.ordinalize_in_full #=> "forty second"
 ## Limitations
 
 - only works up to 100 (for now)
-- locales only available in English, Spanish French, Italian and Dutch (pull requests welcome!)
+- locales only available in English, French, Italian, Spanish, and Dutch (pull requests welcome!)
 
