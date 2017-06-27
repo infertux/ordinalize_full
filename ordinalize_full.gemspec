@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "ordinalize_full"
-  spec.version       = "1.3.0"
+  spec.version       = "1.4.0"
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
   spec.summary       = "Turns a number into an ordinal string such as first, second, third or 1st, 2nd, 3rd."
