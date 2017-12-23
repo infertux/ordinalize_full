@@ -16,6 +16,9 @@ Layout/CaseIndentation:
 Lint/EndAlignment:
   Enabled: false
 
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
