@@ -13,7 +13,7 @@ Layout/AlignParameters:
 Layout/CaseIndentation:
   Enabled: false
 
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 Layout/EmptyLinesAroundArguments:
