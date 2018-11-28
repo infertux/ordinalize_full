@@ -26,10 +26,7 @@ module OrdinalizeFull
         ].join(" ")
       end
 
-      if gender == :feminine
-        value = value.split.map { |part| part.chop << "a" }.join(" ")
-      end
-
+      value = value.split.map { |part| part.chop << "a" }.join(" ") if gender == :feminine
       value << "s" if plurality == :plural
       value = value.chop if value.end_with?("ero")
 
