@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "ordinalize_full"
-  spec.version       = "1.4.0"
+  spec.version       = "1.5.0"
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
   spec.summary       = "Turns a number into an ordinal string such as first, second, third or 1st, 2nd, 3rd."
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "i18n", "~> 0.7.0"
+  spec.add_dependency "i18n", "~> 0.8"
 
   spec.add_development_dependency "bundler", ">= 1.5"
   spec.add_development_dependency "cane"
