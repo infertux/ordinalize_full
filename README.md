@@ -1,4 +1,7 @@
-# OrdinalizeFull [![Build Status](https://travis-ci.org/infertux/ordinalize_full.svg?branch=master)](https://travis-ci.org/infertux/ordinalize_full) [![Dependency Status](https://gemnasium.com/infertux/ordinalize_full.svg)](https://gemnasium.com/infertux/ordinalize_full) [![Code Climate](https://codeclimate.com/github/infertux/ordinalize_full.png)](https://codeclimate.com/github/infertux/ordinalize_full)
+# OrdinalizeFull
+
+[![Build Status](https://travis-ci.org/infertux/ordinalize_full.svg?branch=master)](https://travis-ci.org/infertux/ordinalize_full)
+[![Gem Version](https://badge.fury.io/rb/ordinalize_full.svg)](https://badge.fury.io/rb/ordinalize_full)
 
 Like Rails' [ordinalize](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-ordinalize) method but with the ability to return the ordinal string spelled out in full words such as _"first"_, _"second"_, _"third"_.
 
