@@ -13,7 +13,6 @@ module OrdinalizeFull
     end
   end
 
-  alias_method :ordinalize_full, \
   def ordinalize_in_full(gender: :masculine, plurality: :singular)
     case I18n.locale
     when :es
@@ -37,6 +36,8 @@ module OrdinalizeFull
   rescue ArgumentError
     raise NotImplementedError, "Unknown locale #{I18n.locale}"
   end
+
+  alias_method :ordinalize_full, :ordinalize_in_full
 
 private
 
