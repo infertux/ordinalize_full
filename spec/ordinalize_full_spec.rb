@@ -19,6 +19,7 @@ describe OrdinalizeFull do
       before { I18n.locale = :fr }
 
       specify { expect(1.ordinalize_in_full).to eq("premier") }
+      specify { expect(1.ordinalize_in_full(gender: :feminine)).to eq("première") }
       specify { expect(42.ordinalize_in_full).to eq("quarante-deuxième") }
     end
 
