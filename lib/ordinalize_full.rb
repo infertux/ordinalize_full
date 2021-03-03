@@ -15,6 +15,10 @@ module OrdinalizeFull
 
   def ordinalize_in_full(gender: :masculine, plurality: :singular)
     case I18n.locale
+    when :fr
+      value = I18n.t("ordinalize_full.n_#{self}_#{gender}", throw: false, default: "")
+      value = I18n.t("ordinalize_full.n_#{self}", throw: true) if value.empty?
+      value
     when :es
       value = I18n.t("ordinalize_full.n_#{self}", throw: false, default: "")
 

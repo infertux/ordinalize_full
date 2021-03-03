@@ -1,6 +1,7 @@
 fr:
   ordinalize_full:
     n_1: premier
+    n_1_feminine: première
     n_2: deuxième
     n_3: troisième
     n_4: quatrième
