@@ -1,6 +1,6 @@
 # OrdinalizeFull
 
-[![Build Status](https://travis-ci.org/infertux/ordinalize_full.svg?branch=master)](https://travis-ci.org/infertux/ordinalize_full)
+[![Build Status](https://github.com/infertux/ordinalize_full/actions/workflows/tests.yml/badge.svg)](https://github.com/infertux/ordinalize_full/actions)
 [![Gem Version](https://badge.fury.io/rb/ordinalize_full.svg)](https://badge.fury.io/rb/ordinalize_full)
 
 Like Rails' [ordinalize](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-ordinalize) method but with the ability to return the ordinal string spelled out in full words such as _"first"_, _"second"_, _"third"_.
