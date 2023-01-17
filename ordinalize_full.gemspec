@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "ordinalize_full"
-  spec.version       = "2.0.0"
+  spec.version       = "3.0.0"
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
   spec.summary       = "Turns a number into an ordinal string such as first, second, third or 1st, 2nd, 3rd."
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = ">= 2.6.6"
+  spec.required_ruby_version = ">= 3.0.0"
 
   spec.add_dependency "i18n", "~> 1.8"
 
@@ -26,5 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", "~> 3"
   spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop-rake"
+  spec.add_development_dependency "rubocop-rspec"
   spec.metadata["rubygems_mfa_required"] = "true"
 end
