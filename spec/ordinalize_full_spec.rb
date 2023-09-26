@@ -7,11 +7,20 @@ describe OrdinalizeFull do
     context "with the default locale (:en)" do
       before { I18n.locale = :en }
 
-      specify { expect(1.ordinalize_in_full).to eq("first") }
-      specify { expect(42.ordinalize_in_full).to eq("forty second") }
+      specify { expect(1.ordinalize_in_full).to eq("First") }
+      specify { expect(42.ordinalize_in_full).to eq("Forty-Second") }
+      specify { expect(2023.ordinalize_in_full).to eq("Two Thousand and Twenty-Third") }
+      specify { expect(2147483647.ordinalize_in_full).to eq("Two Billion One Hundred and Forty-Seven Million Four Hundred and Eighty-Three Thousand Six Hundred and Forty-Seventh") }
 
-      it "raises with unknown numbers" do
-        expect { 101.ordinalize_in_full }.to raise_error(NotImplementedError)
+      it "converts any number" do
+        rand = Random.new
+        10.times do
+          expect { rand(1000000).ordinalize_in_full }.not_to raise_error
+        end
+      end
+
+      it "handles negatives too" do
+        expect(-273.ordinalize_in_full).to eq("Negative Two Hundred and Seventy-Third")
       end
     end
 
@@ -53,7 +62,7 @@ describe OrdinalizeFull do
     context "with the default locale (:en)" do
       before { I18n.locale = :en }
 
-      specify { expect(1.ordinalize(in_full: true)).to eq("first") }
+      specify { expect(1.ordinalize(in_full: true)).to eq("First") }
       specify { expect(1.ordinalize(in_full: false)).to eq("1st") }
     end
 

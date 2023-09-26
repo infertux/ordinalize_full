@@ -35,7 +35,11 @@ module OrdinalizeFull
 
       value
     else
-      I18n.t("ordinalize_full.n_#{self}", throw: true)
+      begin
+        integer_to_long_form_ordinal
+      rescue ArgumentError
+        I18n.t("ordinalize_full.n_#{self}", throw: true)
+      end
     end
   rescue ArgumentError
     raise NotImplementedError, "Unknown locale #{I18n.locale}"
@@ -82,5 +86,60 @@ private
     end
 
     [self, suffix].join
+  end
+
+
+  # Build the long form of a given number. In this context, it is used for every digit except the last two.
+  # @param number [Integer] - A number to write in long form
+  # @return [String] - The long form of a number
+  def number_to_word(number)
+
+    if number == 0
+      I18n.t("long_form.simple.ones.n_0", throw: true)
+    elsif number < 20
+      I18n.t("long_form.simple.ones.n_#{number}", throw: true)
+    elsif number < 100
+      "#{I18n.t("long_form.simple.tens.n_#{(number / 10)}", throw: true)}#{(number % 10 == 0) ? "" : "-#{I18n.t("long_form.simple.ones.n_#{number % 10}", throw: true)}"}"
+    elsif number < 1000
+      "#{I18n.t("long_form.simple.ones.n_#{number / 100}", throw: true)} #{I18n.t("long_form.simple.hundred", throw: true)}#{(number % 100 == 0) ? "" : " and #{number_to_word(number % 100)}"}"
+    else
+      i = 0
+      meow = number
+      while meow >= 1000
+        meow /= 1000
+        i += 1
+      end
+      the_one_tenth = number % ((10**(3 * i)))
+      "#{number_to_word(meow)} #{(i > 0 ? I18n.t("long_form.simple.larger.n_#{i}", throw: true) : "")}#{(the_one_tenth == 0) ? "" : " #{number_to_word(the_one_tenth)}"}"
+    end
+  end
+
+  # Builds the ordinalized version of a number. Specific to english. Really only the two least significant digits are ordinalized, and the rest are just in long format
+  # @param number [Integer] - A number to ordinalize in long form
+  # @return [String] - The long form of a number as an ordinal
+  def number_to_ordinal_word(number)
+    if number == 0
+      I18n.t("long_form.ordinal.ones.n_0", throw: true)
+    elsif number < 20
+      I18n.t("long_form.ordinal.ones.n_#{number}", throw: true)
+    elsif number < 100 && number % 10 == 0
+      I18n.t("long_form.ordinal.tens.n_#{(number / 10)}", throw: true)
+    elsif number < 100
+      "#{number_to_word(number - (number % 10))}-#{I18n.t("long_form.ordinal.ones.n_#{number % 10}", throw: true)}"
+    elsif number >= 100 && number % 100 == 0
+      "#{number_to_word(number - (number % 100))}th"
+    else
+      "#{number_to_word(number - (number % 100))} and #{number_to_ordinal_word((number % 100))}"
+    end
+  end
+
+  # Builds the long form ordinal of an integer
+  # @return [String] - The long form ordinal of an integer (including negative)
+  def integer_to_long_form_ordinal
+    negative = self < 0 ? true : false
+    
+    return "#{I18n.t("long_form.negative", throw: true)} #{number_to_ordinal_word(-self)}" if negative
+
+    number_to_ordinal_word(self)
   end
 end
