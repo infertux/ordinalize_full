@@ -7,10 +7,10 @@ describe OrdinalizeFull do
     context "with the default locale (:en)" do
       before { I18n.locale = :en }
 
-      specify { expect(1.ordinalize_in_full).to eq("First") }
-      specify { expect(42.ordinalize_in_full).to eq("Forty-Second") }
-      specify { expect(2023.ordinalize_in_full).to eq("Two Thousand and Twenty-Third") }
-      specify { expect(2_147_483_647.ordinalize_in_full).to eq("Two Billion One Hundred and Forty-Seven Million Four Hundred and Eighty-Three Thousand Six Hundred and Forty-Seventh") } # rubocop:disable Layout/LineLength
+      specify { expect(1.ordinalize_in_full).to eq("first") }
+      specify { expect(42.ordinalize_in_full).to eq("forty-second") }
+      specify { expect(2023.ordinalize_in_full).to eq("two thousand and twenty-third") }
+      specify { expect(2_147_483_647.ordinalize_in_full).to eq("two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seventh") } # rubocop:disable Layout/LineLength
 
       it "converts any number" do
         10.times do
@@ -19,7 +19,7 @@ describe OrdinalizeFull do
       end
 
       it "handles negatives too" do
-        expect(-273.ordinalize_in_full).to eq("Negative Two Hundred and Seventy-Third")
+        expect(-273.ordinalize_in_full).to eq("negative two hundred and seventy-third")
       end
     end
 
@@ -61,7 +61,7 @@ describe OrdinalizeFull do
     context "with the default locale (:en)" do
       before { I18n.locale = :en }
 
-      specify { expect(1.ordinalize(in_full: true)).to eq("First") }
+      specify { expect(1.ordinalize(in_full: true)).to eq("first") }
       specify { expect(1.ordinalize(in_full: false)).to eq("1st") }
     end
 
