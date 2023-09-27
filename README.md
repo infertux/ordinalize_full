@@ -8,9 +8,8 @@ Like Rails' [ordinalize](http://api.rubyonrails.org/classes/ActiveSupport/Inflec
 Features:
 
 - i18n support
-- doesn't monkey-patch
+- doesn't require monkey-patching
 - easy to integrate with Rails but doesn't require Rails
-- less than 50 lines of code
 
 ## Usage
 
@@ -49,6 +48,9 @@ MyIntegerLikeClass.new.ordinalize_in_full #=> "forty second"
 
 ## Limitations
 
-- only works up to 100 (for now)
+- only works up to 100 for non-English languages
 - locales only available in English, French, Italian, Spanish, and Dutch (pull requests welcome!)
 
+## License
+
+`SPDX-License-Identifier: MIT`
