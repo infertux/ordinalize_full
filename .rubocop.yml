@@ -6,32 +6,17 @@ AllCops:
   TargetRubyVersion: 3.0
   NewCops: enable
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
 Metrics:
   Enabled: false
 
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
 
-Layout/CaseIndentation:
-  Enabled: false
-
-Layout/EndAlignment:
-  Enabled: false
-
-Layout/EmptyLinesAroundArguments:
-  Enabled: false
-
-Layout/LineLength:
-  Enabled: false
-
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
-Style/Documentation:
-  Enabled: false
-
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-Style/SpecialGlobalVars:
-  Enabled: false

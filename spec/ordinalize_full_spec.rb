@@ -8,10 +8,18 @@ describe OrdinalizeFull do
       before { I18n.locale = :en }
 
       specify { expect(1.ordinalize_in_full).to eq("first") }
-      specify { expect(42.ordinalize_in_full).to eq("forty second") }
+      specify { expect(42.ordinalize_in_full).to eq("forty-second") }
+      specify { expect(2023.ordinalize_in_full).to eq("two thousand and twenty-third") }
+      specify { expect(2_147_483_647.ordinalize_in_full).to eq("two billion one hundred and forty-seven million four hundred and eighty-three thousand six hundred and forty-seventh") } # rubocop:disable Layout/LineLength
 
-      it "raises with unknown numbers" do
-        expect { 101.ordinalize_in_full }.to raise_error(NotImplementedError)
+      it "converts any number" do
+        10.times do
+          expect { rand(1_000_000).ordinalize_in_full }.not_to raise_error
+        end
+      end
+
+      it "handles negatives too" do
+        expect(-273.ordinalize_in_full).to eq("negative two hundred and seventy-third")
       end
     end
 
