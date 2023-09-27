@@ -10,12 +10,11 @@ describe OrdinalizeFull do
       specify { expect(1.ordinalize_in_full).to eq("First") }
       specify { expect(42.ordinalize_in_full).to eq("Forty-Second") }
       specify { expect(2023.ordinalize_in_full).to eq("Two Thousand and Twenty-Third") }
-      specify { expect(2147483647.ordinalize_in_full).to eq("Two Billion One Hundred and Forty-Seven Million Four Hundred and Eighty-Three Thousand Six Hundred and Forty-Seventh") }
+      specify { expect(2_147_483_647.ordinalize_in_full).to eq("Two Billion One Hundred and Forty-Seven Million Four Hundred and Eighty-Three Thousand Six Hundred and Forty-Seventh") } # rubocop:disable Layout/LineLength
 
       it "converts any number" do
-        rand = Random.new
         10.times do
-          expect { rand(1000000).ordinalize_in_full }.not_to raise_error
+          expect { rand(1_000_000).ordinalize_in_full }.not_to raise_error
         end
       end
 
