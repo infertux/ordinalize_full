@@ -52,7 +52,7 @@ private
 
   def ordinalize_in_short(gender: :masculine, plurality: :singular)
     abs_number = to_i.abs
-    suffix = \
+    suffix =
       case I18n.locale
       when :en
         if (11..13).cover?(abs_number % 100)
@@ -143,7 +143,7 @@ private
     elsif number >= 100 && (number % 100).zero?
       "#{number_to_word(number - (number % 100))}th"
     else
-      "#{number_to_word(number - (number % 100))} and #{number_to_ordinal_word((number % 100))}"
+      "#{number_to_word(number - (number % 100))} and #{number_to_ordinal_word(number % 100)}"
     end
   end
 
