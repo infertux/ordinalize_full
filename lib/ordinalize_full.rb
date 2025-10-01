@@ -117,7 +117,7 @@ private
         meow /= 1000
         i += 1
       end
-      the_one_tenth = number % ((10**(3 * i)))
+      the_one_tenth = number % (10**(3 * i))
       [
         number_to_word(meow),
         " ",
